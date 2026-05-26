@@ -1,0 +1,293 @@
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+
+/* ===============================
+   GLOBAL RESET & VARIABLES
+================================ */
+:root {
+  --bg-main: #0f172a9a;         
+  --bg-section: #0206177e;       
+  --primary: #38bdf8;          
+  --primary-dark: #0284c7;
+  --text-main: #e5e7eb;        
+  --text-muted: #94a3b8;
+  --border-soft: rgba(255,255,255,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* ===============================
+   BODY
+================================ */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===============================
+   HEADER
+================================ */
+header {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: transparent;
+}
+
+.Myname {
+  font-size: 3rem;
+
+  font-weight: 900;
+  background: linear-gradient(90deg, #c71919ff, rgb(221, 97, 14), #e7e4e9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: scaleX(1.15);
+  /* transform-origin: left; */
+  /* font-stretch: ultra-expanded; */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  transform: scaleX(1.15);
+}
+
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   NAVIGATION
+================================ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #020617;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--primary);
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+section {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+/* ===============================
+   ABOUT SECTION
+================================ */
+#about {
+  background-color: var(--bg-section);
+}
+
+.about-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.profile-img {
+  flex: 1;
+  text-align: center;
+}
+
+.profile-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  object-fit: cover;
+}
+
+.bio {
+  flex: 1;
+}
+
+.bio p {
+  margin-bottom: 1rem;
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
+.bio ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.bio ul li {
+  padding: 0.5rem 0;
+  color: var(--text-muted);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.bio ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ===============================
+   PORTFOLIO SECTION
+================================ */
+#portfolio {
+  background-color: transparent;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.portfolio-item {
+  background-color: var(--bg-section);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.portfolio-info {
+  padding: 1.5rem;
+}
+
+.portfolio-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.portfolio-info p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.portfolio-info button {
+  background-color: var(--primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.portfolio-info button:hover {
+  background-color: var(--primary-dark);
+}
+
+.portfolio-info button a {
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .Myname {
+    font-size: 2rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .profile-img img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    padding: 0.5rem 0;
+  }
+
+  nav ul li a {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Myname {
+    font-size: 1.5rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 1.5rem 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
